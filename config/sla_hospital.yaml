@@ -1,0 +1,65 @@
+# Lean SOC CIR Framework - SLA Configuration
+# Organisation Type: Healthcare / Hospital
+#
+# Healthcare environments prioritise patient data confidentiality and system availability.
+# Tighter SLAs reflect regulatory obligations under GDPR and HIQA guidelines.
+# Adjust the values below to match your organisation's specific requirements.
+
+organisation:
+  type: Hospital
+  sector: Healthcare
+  description: SLA profile for healthcare organisations where patient data and system availability are critical
+
+severity_levels:
+
+  SEV1:
+    label: Critical
+    description: Ransomware on clinical systems, patient data breach, loss of access to critical healthcare infrastructure
+    InitialResponder: IT Security Lead (On-Call)
+    AckSLA: 10 min
+    EscalationSLA: 20 min
+    FinalEscalation: CIO / Hospital Director / DPO
+    NotificationChannels:
+      - Phone call (mandatory)
+      - SMS
+      - Email
+      - Notify DPO immediately (GDPR obligation)
+    PIR_Required: true
+    DocumentationDeadline: 24 hrs after closure
+    RegulatoryNote: If personal data is involved, notify Data Protection Commission within 72 hrs (GDPR Article 33)
+
+  SEV2:
+    label: High
+    description: Phishing attack on clinical staff, compromised staff credentials, unauthorised access to patient records
+    InitialResponder: SOC Analyst / IT Security
+    AckSLA: 20 min
+    EscalationSLA: 45 min
+    FinalEscalation: IT Security Lead / DPO
+    NotificationChannels:
+      - Phone call
+      - Email
+      - Teams / Secure Messaging
+    PIR_Required: true
+    DocumentationDeadline: 48 hrs after closure
+    RegulatoryNote: Log incident in Data Breach Register regardless of outcome
+
+  SEV3:
+    label: Medium
+    description: Non-clinical system alert, minor policy violation, low-risk misconfiguration
+    InitialResponder: IT Support / SOC Analyst
+    AckSLA: 30 min
+    EscalationSLA: 2 hrs
+    FinalEscalation: IT Manager
+    NotificationChannels:
+      - Email
+      - Ticketing system
+    PIR_Required: false
+    DocumentationDeadline: 72 hrs after closure
+
+severity_weights:
+  # Healthcare prioritises patient data confidentiality above all else
+  # Adjust if your organisation weighs availability (system uptime) higher
+  asset_value: 0.30
+  data_sensitivity: 0.45
+  user_role: 0.15
+  alert_timing: 0.10

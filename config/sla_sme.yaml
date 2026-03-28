@@ -1,0 +1,65 @@
+# Lean SOC CIR Framework - SLA Configuration
+# Organisation Type: Small / Medium Enterprise (SME)
+#
+# Adjust the values below to match your team's capacity and SLA obligations.
+# No coding required - edit this file and restart the pipeline.
+#
+# SLA fields:
+#   AckSLA         - Maximum time to acknowledge the incident after detection
+#   EscalationSLA  - Maximum time before escalating to the next level
+#   FinalEscalation - Who receives the escalation if SLA is breached
+
+organisation:
+  type: SME
+  sector: General
+  description: Default SLA profile for small and medium enterprises with 1-3 SOC analysts
+
+severity_levels:
+
+  SEV1:
+    label: Critical
+    description: Active breach, ransomware, data exfiltration in progress, or complete system compromise
+    InitialResponder: SOC Analyst (On-Call)
+    AckSLA: 15 min
+    EscalationSLA: 30 min
+    FinalEscalation: IT Manager / CEO
+    NotificationChannels:
+      - Phone call
+      - SMS
+      - Email
+    PIR_Required: true
+    DocumentationDeadline: 24 hrs after closure
+
+  SEV2:
+    label: High
+    description: Significant threat with potential data exposure, compromised credentials, or malware detected
+    InitialResponder: SOC Tier 1 Analyst
+    AckSLA: 30 min
+    EscalationSLA: 1 hr
+    FinalEscalation: SOC Manager
+    NotificationChannels:
+      - Email
+      - Slack / Teams
+    PIR_Required: true
+    DocumentationDeadline: 48 hrs after closure
+
+  SEV3:
+    label: Medium
+    description: Low-impact event, policy violation, minor misconfiguration, or informational alert
+    InitialResponder: SOC Tier 1 Analyst
+    AckSLA: 1 hr
+    EscalationSLA: 4 hrs
+    FinalEscalation: IT Support Lead
+    NotificationChannels:
+      - Email
+      - Ticketing system
+    PIR_Required: false
+    DocumentationDeadline: 72 hrs after closure
+
+severity_weights:
+  # Used by the weighted severity scoring matrix
+  # Adjust weights to reflect your organisation's risk priorities (must sum to 1.0)
+  asset_value: 0.40
+  data_sensitivity: 0.30
+  user_role: 0.20
+  alert_timing: 0.10

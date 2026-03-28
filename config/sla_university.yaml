@@ -1,0 +1,62 @@
+# Lean SOC CIR Framework - SLA Configuration
+# Organisation Type: University / Higher Education Institution
+#
+# Universities face a unique threat landscape: large open networks, student-owned devices,
+# research data, and administrative systems all coexist. GDPR obligations apply to
+# student and staff personal data.
+
+organisation:
+  type: University
+  sector: Higher Education
+  description: SLA profile for universities and third-level institutions with mixed IT environments
+
+severity_levels:
+
+  SEV1:
+    label: Critical
+    description: Ransomware on administrative or research systems, breach of student/staff personal data, loss of core services (email, VLE, student records)
+    InitialResponder: IT Security Officer (On-Call)
+    AckSLA: 15 min
+    EscalationSLA: 30 min
+    FinalEscalation: Head of IT / Registrar / DPO
+    NotificationChannels:
+      - Phone call (mandatory)
+      - SMS
+      - Email
+      - Notify DPO immediately
+    PIR_Required: true
+    DocumentationDeadline: 24 hrs after closure
+    RegulatoryNote: Notify Data Protection Commission within 72 hrs if student/staff data is compromised (GDPR Article 33)
+
+  SEV2:
+    label: High
+    description: Phishing campaign targeting staff, compromised admin credentials, unauthorised access to student records or research data
+    InitialResponder: IT Security Team
+    AckSLA: 30 min
+    EscalationSLA: 1 hr
+    FinalEscalation: IT Security Officer / DPO
+    NotificationChannels:
+      - Email
+      - Teams / Slack
+    PIR_Required: true
+    DocumentationDeadline: 48 hrs after closure
+
+  SEV3:
+    label: Medium
+    description: Student account misuse, minor network policy violation, low-risk alert from SIEM or endpoint tool
+    InitialResponder: IT Helpdesk / SOC Analyst
+    AckSLA: 1 hr
+    EscalationSLA: 4 hrs
+    FinalEscalation: IT Manager
+    NotificationChannels:
+      - Email
+      - Ticketing system
+    PIR_Required: false
+    DocumentationDeadline: 72 hrs after closure
+
+severity_weights:
+  # Universities balance data sensitivity (research + personal data) with system availability
+  asset_value: 0.35
+  data_sensitivity: 0.35
+  user_role: 0.20
+  alert_timing: 0.10
