@@ -151,7 +151,7 @@ The framework was validated through a simulation study using the Ireland Cyber I
 
 ## Research Background
 
-This framework was developed as part of an MSc in Software Design with Cybersecurity at the Technological University of the Shannon (TUS), Athlone, Ireland. A companion paper formatted for IEEE conference submission is in preparation.
+This framework is grounded in applied cybersecurity research focused on the operational gap between enterprise-grade SOAR platforms and the real-world constraints of lean SOC environments. A companion paper formatted for IEEE conference submission is in preparation.
 
 **Research areas:** Lean SOC optimisation · Cybersecurity Incident Response · MTTD/MTTR improvement · YAML-driven escalation · AI-assisted triage
 
@@ -188,5 +188,5 @@ MIT License — free to use, modify, and distribute. See [LICENSE](LICENSE) for 
 ## Author
 
 **Khajith Moses Alikana**
-MSc Software Design with Cybersecurity — Technological University of the Shannon, Ireland
+Cybersecurity Researcher | Lean SOC Optimisation | Incident Response
 [LinkedIn](https://www.linkedin.com/in/khajithmoses) · [Kaggle Dataset](https://www.kaggle.com/datasets/khajithmoses/ireland-cyber-incident-dataset) · [GitHub](https://github.com/khajithmoses)
