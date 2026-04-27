@@ -189,4 +189,4 @@ MIT License — free to use, modify, and distribute. See [LICENSE](LICENSE) for 
 
 **Khajith Moses Alikana**
 Cybersecurity Researcher | Lean SOC Optimisation | Incident Response
-[LinkedIn](https://www.linkedin.com/in/khajithmoses) · [Kaggle Dataset](https://www.kaggle.com/datasets/khajithmoses/ireland-cyber-incident-dataset) · [GitHub](https://github.com/khajithmoses)
+[LinkedIn](https://www.linkedin.com/in/khajith-moses/) · [Kaggle Dataset](https://www.kaggle.com/datasets/khajithmoses/ireland-cyber-incident-dataset) · [GitHub](https://github.com/khajithmoses)
